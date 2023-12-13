@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retail Malefic</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 1em;
+            text-align: center;
+        }
+
+        section {
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        footer {
+            background-color: #dfab0e;
+            color: white;
+            text-align: center;
+            padding: 1em;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Retail Malefic</h1>
+    </header>
+
+    <section>
+        <h2>Main Content Section</h2>
+        <p>This is your main content. You can add more elements, text, and media here.</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Retail Malefic. All rights reserved.</p>
+    </footer>
+
+    <input type="file" id="txtFile">
+    <button onclick="handleFile()">Submit</button>
+
+    <script>
+        function handleFile() {
+            const input = document.getElementById('txtFile');
+            const file = input.files[0];
+
+            if (file) {
+                const reader = new FileReader();
+
+                reader.onload = function(e) {
+                    const fileContent = e.target.result;
+
+                    // Save the file content to localStorage
+                    localStorage.setItem('txtFileContent', fileContent);
+
+                    // You can now work with the content of the file as needed
+                    // For example, display it on the page or process it further
+                    console.log('File content:', fileContent);
+                };
+
+                reader.readAsText(file);
+                 } 
+            else {
+                console.log('No file selected.');
+            }
+        }
+    </script>
+
+</body>
+
+</html>
